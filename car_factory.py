@@ -2,7 +2,7 @@ from __future__ import annotations
 from abc import ABC, abstractmethod
 from engine import Engine, CapuletEngine, SternmanEngine, WilloughbyEngine
 from battery import Battery, SpindlerBattery, NubbinBattery
-from tire import Tires, CarriganTires, OctoprimeTires
+from tires import Tires, CarriganTires, OctoprimeTires
 from datetime import datetime
 
         

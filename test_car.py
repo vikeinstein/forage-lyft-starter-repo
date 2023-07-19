@@ -3,7 +3,7 @@ from datetime import datetime
 
 from engine import Engine,  CapuletEngine, WilloughbyEngine, SternmanEngine
 from battery import Battery, SpindlerBattery, NubbinBattery
-from tire import Tires, CarriganTires, OctoprimeTires
+from tires import Tires, CarriganTires, OctoprimeTires
 
 
 
