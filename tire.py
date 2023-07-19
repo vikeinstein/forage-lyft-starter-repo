@@ -47,4 +47,4 @@ class OctoprimeTires(TireType):
 
     def needs_service(self):
         combined_tire_wears_threshold = 3
-        return sum(self.tire_wear_sensors) > combined_tire_wears_threshold
+        return sum(self.tire_wear_sensors) >= combined_tire_wears_threshold
