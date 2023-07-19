@@ -4,7 +4,7 @@ from datetime import datetime
 from utils import check_tire_wear
 
 
-class Tire:
+class Tires:
     def __init__(self, strategy: TireType) -> None:
 
         self._strategy = strategy
@@ -20,7 +20,7 @@ class Tire:
 
         self._strategy = strategy
 
-    def tire_should_be_serviced(self) -> bool:
+    def tires_should_be_serviced(self) -> bool:
         result = self._strategy.needs_service()
         return result
 
