@@ -33,12 +33,12 @@ class TestCalliope(unittest.TestCase):
         self.assertFalse(engine.engine_should_be_serviced())
 
     def test_tires_should_be_serviced(self):
-        tire_wear_sensors = [0, 0, 1, 0]
+        tire_wear_sensors = [0, 0, 0.9, 0]
         tires = Tires(CarriganTires(tire_wear_sensors))
         self.assertTrue(tires.tires_should_be_serviced())
 
     def test_tires_should_not_be_serviced(self):
-        tire_wear_sensors = [0, 0, 0, 0]
+        tire_wear_sensors = [0, 0, 0.89, 0]
         tires = Tires(CarriganTires(tire_wear_sensors))
         self.assertFalse(tires.tires_should_be_serviced())    
 
@@ -68,6 +68,16 @@ class TestGlissade(unittest.TestCase):
         engine = Engine(WilloughbyEngine(current_mileage, last_service_mileage))
         self.assertFalse(engine.engine_should_be_serviced())
 
+    def test_tires_should_be_serviced(self):
+        tire_wear_sensors = [0, 0, 0.9, 0]
+        tires = Tires(CarriganTires(tire_wear_sensors))
+        self.assertTrue(tires.tires_should_be_serviced())
+
+    def test_tires_should_not_be_serviced(self):
+        tire_wear_sensors = [0, 0, 0.89, 0]
+        tires = Tires(CarriganTires(tire_wear_sensors))
+        self.assertFalse(tires.tires_should_be_serviced()) 
+
 
 class TestPalindrome(unittest.TestCase):
     def test_battery_should_be_serviced(self):
@@ -91,6 +101,16 @@ class TestPalindrome(unittest.TestCase):
         warning_light_is_on = False
         engine = Engine(SternmanEngine(warning_light_is_on))
         self.assertFalse(engine.engine_should_be_serviced())
+
+    def test_tires_should_be_serviced(self):
+        tire_wear_sensors = [0, 0, 0.9, 0]
+        tires = Tires(CarriganTires(tire_wear_sensors))
+        self.assertTrue(tires.tires_should_be_serviced())
+
+    def test_tires_should_not_be_serviced(self):
+        tire_wear_sensors = [0, 0, 0.89, 0]
+        tires = Tires(CarriganTires(tire_wear_sensors))
+        self.assertFalse(tires.tires_should_be_serviced()) 
 
 
 class TestRorschach(unittest.TestCase):
@@ -118,6 +138,16 @@ class TestRorschach(unittest.TestCase):
         engine = Engine(WilloughbyEngine(current_mileage, last_service_mileage))
         self.assertFalse(engine.engine_should_be_serviced())
 
+    def test_tires_should_be_serviced(self):
+        tire_wear_sensors = [0.6, 0.5, 0.9, 1]
+        tires = Tires(OctoprimeTires(tire_wear_sensors))
+        self.assertTrue(tires.tires_should_be_serviced())
+
+    def test_tires_should_not_be_serviced(self):
+        tire_wear_sensors = [0.5, 0.5, 0.9, 1]
+        tires = Tires(OctoprimeTires(tire_wear_sensors))
+        self.assertFalse(tires.tires_should_be_serviced()) 
+
 
 class TestThovex(unittest.TestCase):
     def test_battery_should_be_serviced(self):
@@ -143,6 +173,16 @@ class TestThovex(unittest.TestCase):
         last_service_mileage = 0
         engine = Engine(CapuletEngine(current_mileage, last_service_mileage))
         self.assertFalse(engine.engine_should_be_serviced())
+
+    def test_tires_should_be_serviced(self):
+        tire_wear_sensors = [0.6, 0.5, 0.9, 1]
+        tires = Tires(OctoprimeTires(tire_wear_sensors))
+        self.assertTrue(tires.tires_should_be_serviced())
+
+    def test_tires_should_not_be_serviced(self):
+        tire_wear_sensors = [0.5, 0.5, 0.9, 1]
+        tires = Tires(OctoprimeTires(tire_wear_sensors))
+        self.assertFalse(tires.tires_should_be_serviced()) 
 
 
 if __name__ == '__main__':
