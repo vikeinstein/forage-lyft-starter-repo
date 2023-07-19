@@ -48,17 +48,3 @@ class NubbinBattery(BatteryType):
     def needs_service(self):
         service_threshold_date = self.last_service_date.replace(year=self.last_service_date.year + 4)
         return service_threshold_date < self.current_date
-        
-    
-"""
-if __name__ == "__main__":
-
-    today = datetime.today().date()
-    current_date = today
-    last_service_date = today.replace(year=today.year - 1)
-
-
-    battery1 = Battery(SpindlerBattery(last_service_date, current_date))
-    battery_check1= battery1.battery_should_be_serviced()
-    print(battery_check1)
-"""
