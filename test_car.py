@@ -3,6 +3,7 @@ from datetime import datetime
 
 from engine import Engine,  CapuletEngine, WilloughbyEngine, SternmanEngine
 from battery import Battery, SpindlerBattery, NubbinBattery
+from tire import Tires, CarriganTires, OctoprimeTires
 
 
 
@@ -30,6 +31,16 @@ class TestCalliope(unittest.TestCase):
         last_service_mileage = 0
         engine = Engine(CapuletEngine(current_mileage, last_service_mileage))
         self.assertFalse(engine.engine_should_be_serviced())
+
+    def test_tires_should_be_serviced(self):
+        tire_wear_sensors = [0, 0, 1, 0]
+        tires = Tires(CarriganTires(tire_wear_sensors))
+        self.assertTrue(tires.tires_should_be_serviced())
+
+    def test_tires_should_not_be_serviced(self):
+        tire_wear_sensors = [0, 0, 0, 0]
+        tires = Tires(CarriganTires(tire_wear_sensors))
+        self.assertFalse(tires.tires_should_be_serviced())    
 
 
 class TestGlissade(unittest.TestCase):
